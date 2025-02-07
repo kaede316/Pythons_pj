@@ -51,6 +51,22 @@ def word_finder():
 
     return render_template('word_finder.html', words=found_words)
 
+# 添加大小写转换功能
+@app.route('/case-converter', methods=['GET', 'POST'])
+def case_converter():
+    result = ""
+    if request.method == 'POST':
+        input_text = request.form.get('letters', '').strip()
+        if input_text:
+            # 检测输入内容并进行大小写转换
+            if input_text.islower():
+                result = input_text.upper()
+            elif input_text.isupper():
+                result = input_text.lower()
+            else:
+                result = "输入内容必须是纯大写或纯小写！"
+    return render_template('case_converter.html', result=result)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

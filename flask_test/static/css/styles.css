@@ -34,3 +34,8 @@
     color: #00ff00 !important;
     font-weight: bold;
 }
+
+/* 大小写转换工具样式 */
+.case-converter {
+    margin-top: 2rem;
+}
