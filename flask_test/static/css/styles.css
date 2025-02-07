@@ -16,3 +16,21 @@
     font-size: 1rem;
     padding: 0.5em 0.75em;
 }
+
+/* 新增导航栏样式 */
+.navbar-nav .nav-link {
+    font-size: 16px;
+    color: #f5f5f5 !important;
+    margin: 0 12px;
+    transition: all 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f5f5f5 !important;
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #00ff00 !important;
+    font-weight: bold;
+}
