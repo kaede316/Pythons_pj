@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">高效单词查找器 ⚡</h1>
+    <form method="POST" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="letters" class="form-control" placeholder="输入字母（如：supercalifragilisticexpialidocious）" value="{{ request.form.letters if request.form.letters }}" required>
+            <button type="submit" class="btn btn-primary">立即查找</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="clearInput()">清空</button>
+        </div>
+    </form>
+
+    {% if error %}
+    <div class="alert alert-danger mt-3">{{ error }}</div>
+    {% endif %}
+
+    {% if words %}
+    <div class="results">
+        {% set groups = {} %}
+        {% for word in words %}
+            {% set length = word|length %}
+            {% if length not in groups %}
+                {% set _ = groups.update({length: []}) %}
+            {% endif %}
+            {% set _ = groups[length].append(word) %}
+        {% endfor %}
+
+        {% for length in groups.keys()|sort %}
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2>{{ length }} 字母单词（{{ groups[length]|length }}个）</h2>
+            </div>
+            <div class="card-body">
+                <div class="word-list">
+                    {% for word in groups[length] %}
+                    <div class="word-item">{{ word.lower() }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}
