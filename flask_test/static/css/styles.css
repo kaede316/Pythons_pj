@@ -39,3 +39,37 @@
 .case-converter {
     margin-top: 2rem;
 }
+
+/* 制作人姓名样式 */
+.maker-name {
+    position: fixed; /* 固定定位 */
+    bottom: 10px; /* 距离页面底部的距离 */
+    right: 10px; /* 距离页面右侧的距离 */
+    color: #666; /* 字体颜色 */
+    font-size: 0.8rem; /* 默认字体大小 */
+    padding: 5px; /* 内边距 */
+    background: #f9f9f9; /* 背景颜色 */
+    border-radius: 5px; /* 圆角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    display: flex; /* 使用 flex 布局 */
+    flex-direction: column; /* 垂直排列 */
+    align-items: flex-start; /* 对齐方式 */
+}
+
+.maker-name-line {
+    display: flex; /* 使用 flex 布局 */
+    align-items: flex-start;
+    width: 120px; /* 设置固定宽度 */
+    margin-bottom: 5px; /* 行间距 */
+}
+
+.label {
+    font-weight: bold; /* 标签加粗 */
+    white-space: nowrap; /* 防止换行 */
+    /*margin-right: 3px; !* 标签和值之间的间距 *!*/
+    letter-spacing: 1px; /* 调整字符间距 */
+}
+
+.value {
+    text-align: left; /* 值左对齐 */
+}
