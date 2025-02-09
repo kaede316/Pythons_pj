@@ -67,6 +67,27 @@ def case_converter():
                 result = "输入内容必须是纯大写或纯小写！"
     return render_template('case_converter.html', result=result)
 
+# 判断是否为闰年的逻辑
+@app.route('/leap-year-checker', methods=['GET', 'POST'])
+def leap_year_checker():
+    result = None
+    error = None
+    year = None
+
+    if request.method == 'POST':
+        try:
+            year = int(request.form['year'])
+            if year <= 0:
+                raise ValueError
+            # 闰年判断逻辑
+            if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+                result = True
+            else:
+                result = False
+        except ValueError:
+            error = "请输入有效的正整数年份"
+
+    return render_template('leap_year_checker.html', result=result, year=year, error=error)
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=8080, debug=True)

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">闰年检查工具 📅</h1>
+    <form method="POST" class="mb-4">
+        <div class="input-group">
+            <input type="number" name="year" class="form-control" 
+                   placeholder="输入年份（如：2024）" 
+                   value="{{ request.form.year if request.form.year }}"
+                   min="1" required>
+            <button type="submit" class="btn btn-primary">检查</button>
+            <button type="button" class="btn btn-outline-secondary" 
+                    onclick="clearInput()">清空</button>
+        </div>
+    </form>
+
+    {% if result is not none %}
+    <div class="alert {{ 'alert-success' if result else 'alert-danger' }} mt-3">
+        {{ year }} 年 {{ "是" if result else "不是" }}闰年
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-warning mt-3">{{ error }}</div>
+    {% endif %}
+</div>
+{% endblock %}

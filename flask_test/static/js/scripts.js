@@ -1,7 +1,6 @@
 function clearInput() {
-    // 获取输入框元素
-    const input = document.querySelector('input[name="letters"]');
-    if (input) {
-        input.value = ''; // 清空输入框
-    }
+    const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
+    inputs.forEach(input => {
+        input.value = '';
+    });
 }
