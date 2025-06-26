@@ -95,12 +95,12 @@ print(f"result is {result.content}")
 # print(data['name'])
 
 
-try:
-    # 解析结果
-    parsed_result = parser.parse(result.content)
-    print("成功生成并解析数据：")
-    print(parsed_result)
-except Exception as e:
-    print(f"解析失败: {e}")
-    print("原始输出内容：")
-    print(result.content)
+# try:
+#     # 解析结果
+#     parsed_result = parser.parse(result.content)
+#     print("成功生成并解析数据：")
+#     print(parsed_result)
+# except Exception as e:
+#     print(f"解析失败: {e}")
+#     print("原始输出内容：")
+#     print(result.content)
