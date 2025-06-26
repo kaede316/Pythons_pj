@@ -80,7 +80,7 @@ parser = PydanticOutputParser(pydantic_object=Person)
 
 # 修正提示词模板（使用正确的输入变量和拼写）
 prompt = PromptTemplate(
-    template="生成2组用户数据，要求以json格式输出。不使用markdown格式，直接输出纯json格式。格式要求如下：\n{format_instructions}\n信息为{person}\n请生成符合要求的数据。",
+    template="生成5组用户数据，要求以json格式输出。不使用markdown格式，直接输出纯json格式。格式要求如下：\n{format_instructions}\n信息为{person}\n请生成符合要求的数据。",
     input_variables=['person'],
     partial_variables={"format_instructions": parser.get_format_instructions()}
 )
@@ -91,8 +91,8 @@ formatted_prompt = prompt.invoke("人员信息")
 # 调用模型
 result = model.invoke(formatted_prompt)
 print(f"result is {result.content}")
-# data = json.loads(result.content)
-# print(data['name'])
+data = json.loads(result.content)
+# print(data)
 
 
 # try:
