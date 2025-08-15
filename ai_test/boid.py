@@ -15,7 +15,7 @@ pygame.display.set_caption("Boids Algorithm - Flocking Behavior Simulation")
 BACKGROUND = (255, 255, 255)  # Changed to white background
 BOID_COLOR = (0, 100, 200)  # Adjusted for better visibility on white
 HIGHLIGHT_COLOR = (200, 0, 0)
-TEXT_COLOR = (55, 50, 50)  # Darker text for white background
+TEXT_COLOR = (55, 55, 50)  # Darker text for white background
 GRID_COLOR = (220, 220, 220)  # Lighter grid for white background
 CONNECTION_COLOR = (100, 150, 200)  # Adjusted connection color
 
