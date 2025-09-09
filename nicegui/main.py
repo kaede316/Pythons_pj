@@ -88,14 +88,13 @@ def main_page():
                 ui.label('工具平台').classes('text-xl font-bold')
 
             with ui.row().classes('items-center gap-2'):
-                # ui.label('登录用户: Kaede').classes('text-white')  # 修改点1: 显示登录个人信息
                 ui.button(icon='search', color='blue').props('flat')
                 ui.button(icon='notifications', color='blue').props('flat')
                 ui.button(icon='account_circle', color='blue').props('flat')
 
     with ui.row().classes('w-full h-full'):
         with ui.column().classes('h-full bg-lime-100 shadow-md transition-all duration-300') \
-                .bind_visibility_from(user, 'sidebar_expanded'):  # 修改点3: 左侧导航栏颜色改为淡绿色
+                .bind_visibility_from(user, 'sidebar_expanded'):
             with ui.column().classes('p-4 w-64'):
                 ui.label('工具分类').classes('text-lg font-bold mb-4 mt-2')
 
@@ -117,21 +116,21 @@ def main_page():
             with ui.row().classes('w-full items-center justify-between mb-8'):
                 ui.label('所有工具').classes('text-xl font-bold')
                 with ui.row().classes('items-center'):
-                    with ui.row().classes('items-center w-64 border rounded'):  # 修改点2: 输入框大小与最近使用方框一致
-                        ui.icon('search', color='gray').classes('ml-2')
+                    with ui.row().classes('items-center w-64 border-none'):
+                        ui.icon('search', color='green').classes('ml-2')
                         ui.input('搜索工具').classes('flex-grow border-none')
                     ui.toggle(['最近使用', '最受欢迎', 'A-Z排序'], value='最近使用')
 
             with ui.grid(columns=4).classes('w-full gap-6'):
                 for tool in tools:
-                    with ui.card().classes('w-full h-48 relative group cursor-pointer') \
+                    with ui.card().classes('w-full h-48 relative flex items-center justify-center group cursor-pointer') \
                             .on('click', lambda _, tool_id=tool['id']: ui.open(f'/tool/{tool_id}')):
-                        with ui.column().classes('absolute-center text-center'):
+                        with ui.column().classes('flex items-center justify-center text-center w-full h-full'):
                             ui.icon(tool['icon'], size='xl', color=tool['color']).classes('text-4xl mb-2')
                             ui.label(tool['name']).classes('font-semibold')
 
                         with ui.column().classes(
-                                'absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded shadow-lg text-center'):
+                                'absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded shadow-lg flex items-center justify-center text-center'):
                             ui.label(tool['name']).classes('text-lg font-bold text-center mb-2')
                             ui.label(tool['description']).classes('text-gray-700 text-center mb-4')
                             with ui.row().classes('justify-center'):
