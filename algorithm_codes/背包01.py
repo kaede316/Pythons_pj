@@ -1,7 +1,3 @@
-from mpmath.calculus.differentiation import dpoly
-from numpy.linalg.lapack_lite import dorgqr
-
-
 def pacage01(weight, value, capacity):
     n = len(weight)
     dp =  [[0 for _ in range(capacity + 1)] for _ in range(n + 1) ]
